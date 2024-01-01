@@ -54,3 +54,7 @@ Route::get('/education',function(){
     return view('candidate.add_education_details');
 })->name('education');
 
+Route::get('/job-alerts',function(){
+    return view('candidate.job_alerts');
+})->name('job_alerts');
+

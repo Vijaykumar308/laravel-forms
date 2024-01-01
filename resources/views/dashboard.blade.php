@@ -44,7 +44,7 @@
                         <div class="flex justify-center items-center">
                             <div class="flex-shrink-0">
                                 <h4 class="text-base font-normal text-gray-500">
-                                    <a href="#">Jobs Alerts</a>
+                                    <a href="{{route('job_alerts')}}">Jobs Alerts</a>
                                 </h4>
                                 <span class="font-thin leading-none font-bold text-gray-600">Check for the leatest jobs</span>
                             </div>
@@ -57,7 +57,7 @@
                      <div class="bg-white shadow rounded-lg mb-4 p-4 sm:p-6 h-full">
                         <div class="flex items-center justify-between mb-4">
                            <h3 class="text-xl font-bold leading-none text-gray-900">Latest Jobs Alrets</h3>
-                           <a href="#" class="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg inline-flex items-center p-2">
+                           <a href="{{route('job_alerts')}}" class="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg inline-flex items-center p-2">
                            View all
                            </a>
                         </div>

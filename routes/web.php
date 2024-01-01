@@ -47,6 +47,10 @@ require __DIR__ . '/auth.php';
 /* User Routes */
 
 Route::get('/documents',function(){
-    return view('documents_uploads');
+    return view('candidate.documents_uploads');
 })->name('documents');
+
+Route::get('/education',function(){
+    return view('candidate.add_education_details');
+})->name('education');
 

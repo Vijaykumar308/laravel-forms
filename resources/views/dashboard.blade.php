@@ -22,7 +22,7 @@
                             <div class="flex justify-center items-center">
                                 <div class="flex-shrink-0">
                                     <h4 class="text-base font-normal text-gray-500">
-                                        <a href="#">Education Details</a>
+                                        <a href="{{route('education')}}">Education Details</a>
                                     </h4>
                                     <span class="font-thin leading-none font-bold text-gray-600">Fill your education details</span>
                                 </div>

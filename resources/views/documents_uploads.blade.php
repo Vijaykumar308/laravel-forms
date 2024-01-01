@@ -12,8 +12,153 @@
       </div>
   </x-slot>
 
+{{-- dark:text-gray-400
+dark:bg-dark-eval-1
+
+dark:border-gray-600 
+dark:placeholder-gray-400 --}}
+
+
+  <div class="mt-4">
+    <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
+      <div class="flex justify-between items-baseline">
+        <h3 class="text-xl leading-none font-bold text-gray-900 mb-10">Uploads</h3>
+        <a href="">
+          <button type="submit" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-purple-500 text-white hover:bg-purple-600 focus:ring-purple-500 rounded-md">
+            View Document
+          </button>
+        </a>
+      </div>
+
+       <div class="block w-full overflow-x-auto">
+          <table class="items-center w-full bg-transparent border-collapse">
+             <thead>
+                <tr>
+                   <th class="px-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">Documents</th>
+                   <th class="px-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">categorys</th>
+                   <th class="px-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap min-w-140-px"></th>
+                </tr>
+             </thead>
+             <tbody class="divide-y divide-gray-100">
+                <tr class="text-gray-500">
+                   <th class="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload 10th Document</label>
+                    <input class="block py-4 px-4 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+                    <p class="mt-1 text-thin text-gray-400 dark:text-gray-300" id="file_input_help">PDF max size upto 2 MB.</p>
+                    </th>
+                   <td class="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4">10th Certificate</td>
+                   <td class="border-t-0 px-4 align-middle text-xs whitespace-nowrap p-4">
+                      <div class="flex items-center">
+                       <form action="" method="post">
+                        <button type="submit" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-purple-500 text-white hover:bg-purple-600 focus:ring-purple-500 rounded-md">
+                          Upload
+                        </button>
+                       </form>
+                      </div>
+                   </td>
+                </tr>
+                <tr class="text-gray-500">
+                  <th class="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
+                   <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload 12th Document</label>
+                   <input class="block py-4 px-4 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+                   <p class="mt-1 text-thin text-gray-400 dark:text-gray-300" id="file_input_help">PDF max size upto 2 MB.</p>
+                   </th>
+                  <td class="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4">12th Certificate</td>
+                  <td class="border-t-0 px-4 align-middle text-xs whitespace-nowrap p-4">
+                     <div class="flex items-center">
+                      <form action="" method="post">
+                       <button type="submit" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-purple-500 text-white hover:bg-purple-600 focus:ring-purple-500 rounded-md">
+                         Upload
+                       </button>
+                      </form>
+                     </div>
+                  </td>
+               </tr>
+
+               <tr class="text-gray-500">
+                <th class="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
+                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload UG Document</label>
+                 <input class="block py-4 px-4 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+                 <p class="mt-1 text-thin text-gray-400 dark:text-gray-300" id="file_input_help">PDF max size upto 2 MB.</p>
+                 </th>
+                <td class="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4"> Under Gradudation</td>
+                <td class="border-t-0 px-4 align-middle text-xs whitespace-nowrap p-4">
+                   <div class="flex items-center">
+                    <form action="" method="post">
+                     <button type="submit" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-purple-500 text-white hover:bg-purple-600 focus:ring-purple-500 rounded-md">
+                       Upload
+                     </button>
+                    </form>
+                   </div>
+                </td>
+             </tr>
+
+             <tr class="text-gray-500">
+              <th class="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
+               <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Adhar Card</label>
+               <input class="block py-4 px-4 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+               <p class="mt-1 text-thin text-gray-400 dark:text-gray-300" id="file_input_help">PDF max size upto 2 MB.</p>
+               </th>
+              <td class="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4">Adhar Card</td>
+              <td class="border-t-0 px-4 align-middle text-xs whitespace-nowrap p-4">
+                 <div class="flex items-center">
+                  <form action="" method="post">
+                   <button type="submit" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-purple-500 text-white hover:bg-purple-600 focus:ring-purple-500 rounded-md">
+                     Upload
+                   </button>
+                  </form>
+                 </div>
+              </td>
+           </tr>
+
+
+           <tr class="text-gray-500">
+            <th class="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
+             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Pan Card</label>
+             <input class="block py-4 px-4 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+             <p class="mt-1 text-thin text-gray-400 dark:text-gray-300" id="file_input_help">PDF max size upto 2 MB.</p>
+             </th>
+            <td class="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4">Pan Card</td>
+            <td class="border-t-0 px-4 align-middle text-xs whitespace-nowrap p-4">
+               <div class="flex items-center">
+                <form action="" method="post">
+                 <button type="submit" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-purple-500 text-white hover:bg-purple-600 focus:ring-purple-500 rounded-md">
+                   Upload
+                 </button>
+                </form>
+               </div>
+            </td>
+         </tr>
+
+
+         {{-- <tr class="text-gray-500">
+          <th class="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
+           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+           <input class="block py-4 px-4 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+           <p class="mt-1 text-thin text-gray-400 dark:text-gray-300" id="file_input_help">PDF max size upto 2 MB.</p>
+           </th>
+          <td class="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4">10th Certificate</td>
+          <td class="border-t-0 px-4 align-middle text-xs whitespace-nowrap p-4">
+             <div class="flex items-center">
+              <form action="" method="post">
+               <button type="submit" class="inline-flex items-center transition-colors font-medium select-none disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-eval-2 px-4 py-2 text-base bg-purple-500 text-white hover:bg-purple-600 focus:ring-purple-500 rounded-md">
+                 Upload
+               </button>
+              </form>
+             </div>
+          </td>
+       </tr>      --}}
+             </tbody>
+          </table>
+       </div>
+    </div>
+ </div>
+
+
+
+
   <!-- component -->
-  <div class="bg-gray-500 sm:px-8 md:px-16 sm:py-8">
+  {{-- <div class="bg-gray-500 sm:px-8 md:px-16 sm:py-8">
     <main class="container mx-auto max-w-screen-lg h-full">
       <!-- file upload modal -->
       <article aria-label="File Upload Modal" class="relative h-full flex flex-col bg-white shadow-xl rounded-md" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" ondragenter="dragEnterHandler(event);">
@@ -62,7 +207,7 @@
         </footer>
       </article>
     </main>
-  </div>
+  </div> --}}
 
   <!-- using two similar templates for simplicity in js code -->
   <template id="file-template">

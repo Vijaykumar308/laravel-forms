@@ -43,3 +43,10 @@ Route::get('/buttons/text-icon', function () {
 })->middleware(['auth'])->name('buttons.text-icon');
 
 require __DIR__ . '/auth.php';
+
+/* User Routes */
+
+Route::get('/documents',function(){
+    return view('documents_uploads');
+})->name('documents');
+

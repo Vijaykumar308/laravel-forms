@@ -1,19 +1,19 @@
 <x-app-layout>
-    <x-slot name="header">
-        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <h2 class="text-xl font-semibold leading-tight">
-                {{ __('Uploads Documents') }}
-            </h2>
-            {{-- <x-button target="_blank" href="https://github.com/kamona-wd/kui-laravel-breeze" variant="black"
-                class="justify-center max-w-xs gap-2">
-                <x-icons.github class="w-6 h-6" aria-hidden="true" />
-                <span>Star on Github</span>
-            </x-button> --}}
-        </div>
-    </x-slot>
+  <x-slot name="header">
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <h2 class="text-xl font-semibold leading-tight">
+              {{ __('Uploads Documents') }}
+          </h2>
+          {{-- <x-button target="_blank" href="https://github.com/kamona-wd/kui-laravel-breeze" variant="black"
+              class="justify-center max-w-xs gap-2">
+              <x-icons.github class="w-6 h-6" aria-hidden="true" />
+              <span>Star on Github</span>
+          </x-button> --}}
+      </div>
+  </x-slot>
 
-    <!-- component -->
-<div class="bg-gray-500 sm:px-8 md:px-16 sm:py-8">
+  <!-- component -->
+  <div class="bg-gray-500 sm:px-8 md:px-16 sm:py-8">
     <main class="container mx-auto max-w-screen-lg h-full">
       <!-- file upload modal -->
       <article aria-label="File Upload Modal" class="relative h-full flex flex-col bg-white shadow-xl rounded-md" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" ondragenter="dragEnterHandler(event);">
@@ -80,12 +80,14 @@
                 </svg>
               </i>
             </span>
+
             <p class="p-1 size text-xs text-gray-700"></p>
+
             <button class="delete ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md text-gray-800">
               <svg class="pointer-events-none fill-current w-4 h-4 ml-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path class="pointer-events-none" d="M3 6l3 18h12l3-18h-18zm19-4v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.316c0 .901.73 2 1.631 2h5.711z" />
               </svg>
-            </button>
+            </button>   
           </div>
         </section>
       </article>
@@ -120,150 +122,147 @@
     </li>
   </template>
 
-<script>
-const fileTempl = document.getElementById("file-template"),
-imageTempl = document.getElementById("image-template"),
-empty = document.getElementById("empty");
+  <script>
+    const fileTempl = document.getElementById("file-template"),
+    imageTempl = document.getElementById("image-template"),
+    empty = document.getElementById("empty");
 
-// use to store pre selected files
-let FILES = {};
+    // use to store pre selected files
+    let FILES = {};
 
-// check if file is of type image and prepend the initialied
-// template to the target element
-function addFile(target, file) {
-const isImage = file.type.match("image.*"),
-  objectURL = URL.createObjectURL(file);
+    // check if file is of type image and prepend the initialied
+    // template to the target element
+    function addFile(target, file) {
+      const isImage = file.type.match("image.*"),
+      objectURL = URL.createObjectURL(file);
 
-const clone = isImage
-  ? imageTempl.content.cloneNode(true)
-  : fileTempl.content.cloneNode(true);
+      const clone = isImage ? imageTempl.content.cloneNode(true) : fileTempl.content.cloneNode(true);
 
-clone.querySelector("h1").textContent = file.name;
-clone.querySelector("li").id = objectURL;
-clone.querySelector(".delete").dataset.target = objectURL;
-clone.querySelector(".size").textContent =
-  file.size > 1024
-    ? file.size > 1048576
-      ? Math.round(file.size / 1048576) + "mb"
-      : Math.round(file.size / 1024) + "kb"
-    : file.size + "b";
+      clone.querySelector("h1").textContent = file.name;
+      clone.querySelector("li").id = objectURL;
+      clone.querySelector(".delete").dataset.target = objectURL;
+      clone.querySelector(".size").textContent =
+      file.size > 1024
+        ? file.size > 1048576
+          ? Math.round(file.size / 1048576) + "mb"
+          : Math.round(file.size / 1024) + "kb"
+        : file.size + "b";
 
-isImage &&
-  Object.assign(clone.querySelector("img"), {
-    src: objectURL,
-    alt: file.name
-  });
+      isImage &&
+        Object.assign(clone.querySelector("img"), {
+          src: objectURL,
+          alt: file.name
+        });
 
-empty.classList.add("hidden");
-target.prepend(clone);
+      empty.classList.add("hidden");
+      target.prepend(clone);
 
-FILES[objectURL] = file;
-}
+      FILES[objectURL] = file;
+    }
 
-const gallery = document.getElementById("gallery"),
-overlay = document.getElementById("overlay");
+    const gallery = document.getElementById("gallery"),
+    overlay = document.getElementById("overlay");
 
-// click the hidden input of type file if the visible button is clicked
-// and capture the selected files
-const hidden = document.getElementById("hidden-input");
-document.getElementById("button").onclick = () => hidden.click();
-hidden.onchange = (e) => {
-for (const file of e.target.files) {
-  addFile(gallery, file);
-}
-};
+    // click the hidden input of type file if the visible button is clicked
+    // and capture the selected files
+    const hidden = document.getElementById("hidden-input");
+    document.getElementById("button").onclick = () => hidden.click();
+    hidden.onchange = (e) => {
+    for (const file of e.target.files) {
+      addFile(gallery, file);
+    }
+    };
 
-// use to check if a file is being dragged
-const hasFiles = ({ dataTransfer: { types = [] } }) =>
-types.indexOf("Files") > -1;
+    // use to check if a file is being dragged
+    const hasFiles = ({ dataTransfer: { types = [] } }) =>
+    types.indexOf("Files") > -1;
 
-// use to drag dragenter and dragleave events.
-// this is to know if the outermost parent is dragged over
-// without issues due to drag events on its children
-let counter = 0;
+    // use to drag dragenter and dragleave events.
+    // this is to know if the outermost parent is dragged over
+    // without issues due to drag events on its children
+    let counter = 0;
 
-// reset counter and append file to gallery when file is dropped
-function dropHandler(ev) {
-ev.preventDefault();
-for (const file of ev.dataTransfer.files) {
-  addFile(gallery, file);
-  overlay.classList.remove("draggedover");
-  counter = 0;
-}
-}
+    // reset counter and append file to gallery when file is dropped
+    function dropHandler(ev) {
+      ev.preventDefault();
+      for (const file of ev.dataTransfer.files) {
+        addFile(gallery, file);
+        overlay.classList.remove("draggedover");
+        counter = 0;
+      }
+    }
 
-// only react to actual files being dragged
-function dragEnterHandler(e) {
-e.preventDefault();
-if (!hasFiles(e)) {
-  return;
-}
-++counter && overlay.classList.add("draggedover");
-}
+    // only react to actual files being dragged
+    function dragEnterHandler(e) {
+      e.preventDefault();
+      if (!hasFiles(e)) {
+        return;
+      }
+      ++counter && overlay.classList.add("draggedover");
+    }
 
-function dragLeaveHandler(e) {
-1 > --counter && overlay.classList.remove("draggedover");
-}
+    function dragLeaveHandler(e) {
+      1 > --counter && overlay.classList.remove("draggedover");
+    }
 
-function dragOverHandler(e) {
-if (hasFiles(e)) {
-  e.preventDefault();
-}
-}
+    function dragOverHandler(e) {
+      if (hasFiles(e)) {
+        e.preventDefault();
+      }
+    }
 
-// event delegation to caputre delete events
-// fron the waste buckets in the file preview cards
-gallery.onclick = ({ target }) => {
-if (target.classList.contains("delete")) {
-  const ou = target.dataset.target;
-  document.getElementById(ou).remove(ou);
-  gallery.children.length === 1 && empty.classList.remove("hidden");
-  delete FILES[ou];
-}
-};
+    // event delegation to caputre delete events
+    // fron the waste buckets in the file preview cards
+    gallery.onclick = ({ target }) => {
+      if (target.classList.contains("delete")) {
+        const ou = target.dataset.target;
+        document.getElementById(ou).remove(ou);
+        gallery.children.length === 1 && empty.classList.remove("hidden");
+        delete FILES[ou];
+      }
+    };
 
-// print all selected files
-document.getElementById("submit").onclick = () => {
-alert(`Submitted Files:\n${JSON.stringify(FILES)}`);
-console.log(FILES);
-};
+    // print all selected files
+    document.getElementById("submit").onclick = () => {
+      alert(`Submitted Files:\n${JSON.stringify(FILES)}`);
+      console.log(FILES);
+    };
 
-// clear entire selection
-document.getElementById("cancel").onclick = () => {
-while (gallery.children.length > 0) {
-  gallery.lastChild.remove();
-}
-FILES = {};
-empty.classList.remove("hidden");
-gallery.append(empty);
-};
+    // clear entire selection
+    document.getElementById("cancel").onclick = () => {
+      while (gallery.children.length > 0) {
+        gallery.lastChild.remove();
+      }
+      FILES = {};
+      empty.classList.remove("hidden");
+      gallery.append(empty);
+    };
+  </script>
 
-</script>
+  <style>
+    .hasImage:hover section {
+      background-color: rgba(5, 5, 5, 0.4);
+    }
 
-<style>
-.hasImage:hover section {
-background-color: rgba(5, 5, 5, 0.4);
-}
-.hasImage:hover button:hover {
-background: rgba(5, 5, 5, 0.45);
-}
+    .hasImage:hover button:hover {
+      background: rgba(5, 5, 5, 0.45);
+    }
 
-#overlay p,
-i {
-opacity: 0;
-}
+    #overlay p, i {
+      opacity: 0;
+    }
 
-#overlay.draggedover {
-background-color: rgba(255, 255, 255, 0.7);
-}
-#overlay.draggedover p,
-#overlay.draggedover i {
-opacity: 1;
-}
+    #overlay.draggedover {
+      background-color: rgba(255, 255, 255, 0.7);
+    }
 
-.group:hover .group-hover\:text-blue-800 {
-color: #2b6cb0;
-}
-</style>
+    #overlay.draggedover p,
+    #overlay.draggedover i {
+      opacity: 1;
+    }
 
+    .group:hover .group-hover\:text-blue-800 {
+      color: #2b6cb0;
+    }
+  </style>
 </x-app-layout>
